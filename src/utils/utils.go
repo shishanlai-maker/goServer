@@ -76,5 +76,3 @@ func HandlePaging(pageSize string, pageNo string) string {
 	sqlPage := fmt.Sprintf(" LIMIT %d,%d", (pageno-1)*pagesize, pagesize)
 	return sqlPage
 }
-
-//测试git
