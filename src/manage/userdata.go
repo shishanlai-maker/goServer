@@ -7,28 +7,28 @@ import (
 	"github.com/garyburd/redigo/redis"
 )
 
-//创建两个常量，保存方法的类型
+// 创建两个常量，保存方法的类型
 const RegisterType = "register"
 const LoginType = "login"
 
-//接受登陆注册数据的结构体
+// 接受登陆注册数据的结构体
 type ResquestData2 struct {
 	UserName     string `json:"userName"`
 	UserAccount  int    `json:"userAccount"`
 	UserPassword int    `json:"userPassword"`
 }
 
-//返回响应数据的结构体
+// 返回响应数据的结构体
 type ResponseAllData struct {
 	Code int               `json:"code"`
 	Data map[string]string `json:"data"`
 	Msg  string            `json:"msg"`
 }
 
-//定义一个全局的pool
+// 定义一个全局的pool
 var pool *redis.Pool
 
-//redis链接池的操作，这样更省时间
+// redis链接池的操作，这样更省时间
 func init() {
 	pool = &redis.Pool{
 		MaxIdle:     8,   //最大空闲连接数
